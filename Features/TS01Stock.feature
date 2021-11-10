@@ -6,10 +6,10 @@ Background:
 Given that the login page is displayed
 
 Scenario: SC01 Add stock
-When I log in as <a.b@gmail.com> 
+When I log in as a.b@gmail.com
 And I add stock
 And logged out
-When I log in as user
+When I log in as a.b@gmail.com
 Then stock should be displayed
 
 Scenario: SC02 Delete stock

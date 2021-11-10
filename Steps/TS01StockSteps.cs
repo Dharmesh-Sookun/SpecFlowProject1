@@ -10,15 +10,15 @@ namespace SpecFlowProject1.Features
         [Given(@"that the login page is displayed")]
         public void LoginPageIsDisplayed()
         {
-            BaseMethods.OpenURL();
+            BaseMethods.OpenURL("https://localhost:44362/Auth/Login");
         }
 
         [When(@"I log in as (.*)")]
         public void WhenILogInAs(string username)
         {
             Login.EnterUsername(username);
-            //EnterPassword();
-            //ClickLogin();
+            Login.EnterPassword("12345");
+            Login.ClickLogin("//input[@type='submit']");
         }
 
         [When(@"I add stock")]
@@ -29,10 +29,10 @@ namespace SpecFlowProject1.Features
         }
 
         [When(@"logged out")]
-        [Obsolete]
         public void WhenLoggedOut()
         {
-            ScenarioContext.Current.Pending();
+            Login.ClickLogout("//a [@href= '/Auth/Logout']");
+            LoginPageIsDisplayed();
         }
 
         [Then(@"stock should be displayed")]
