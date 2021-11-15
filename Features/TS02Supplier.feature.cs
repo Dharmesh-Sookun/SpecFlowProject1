@@ -115,25 +115,19 @@ testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFl
 testRunner.And("I add supplier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-testRunner.And("logged out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
-testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 13
 testRunner.Then("supplier should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("SC02 Delete supplier", SourceLine=14)]
+        [TechTalk.SpecRun.ScenarioAttribute("SC02 Delete supplier", SourceLine=12)]
         public virtual void SC02DeleteSupplier()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SC02 Delete supplier", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 15
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -156,32 +150,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
+#line 14
+testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 15
+testRunner.And("I delete supplier 24", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 16
-testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 17
-testRunner.And("I delete supplier 14", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 18
-testRunner.And("logged out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 19
-testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 20
 testRunner.Then("supplier deleted should not be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("SC03 Update supplier", SourceLine=21)]
+        [TechTalk.SpecRun.ScenarioAttribute("SC03 Update supplier", SourceLine=17)]
         public virtual void SC03UpdateSupplier()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SC03 Update supplier", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 22
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -204,32 +192,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 23
+#line 19
 testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 20
 testRunner.And("I update supplier 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
-testRunner.And("logged out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
-testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 27
+#line 21
 testRunner.Then("supplier should be updated 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("SC04 View suppliers", SourceLine=28)]
+        [TechTalk.SpecRun.ScenarioAttribute("SC04 View suppliers", SourceLine=22)]
         public virtual void SC04ViewSuppliers()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SC04 View suppliers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 29
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -252,26 +234,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 30
+#line 24
 testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 25
 testRunner.And("I view suppliers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 26
 testRunner.Then("all suppliers should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("SC05 View supplier", SourceLine=33)]
+        [TechTalk.SpecRun.ScenarioAttribute("SC05 View supplier", SourceLine=27)]
         public virtual void SC05ViewSupplier()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("SC05 View supplier", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 34
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -294,13 +276,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 35
+#line 29
 testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 30
 testRunner.And("I view one supplier 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 37
+#line 31
 testRunner.Then("all details for that supplier should be displayed 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

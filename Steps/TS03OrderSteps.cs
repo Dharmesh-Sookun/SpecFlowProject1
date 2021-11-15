@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentAssertions;
+using SeleniumDriver;
+using System;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowProject1.Steps
@@ -6,12 +8,26 @@ namespace SpecFlowProject1.Steps
     [Binding]
     public class TS03OrderSteps
     {
+        private static int oldCount;
         [When(@"I add order")]
         public void WhenIAddOrder()
         {
-            ScenarioContext.Current.Pending();
+            Order.OpenOrderPage();
+            oldCount = Order.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
+            Order.OpenCreateOrderPage();
+            Order.SelectSupplier("Carl");
+            Order.SelectDate("06292021");
+            Order.SelectEquipment("- Mouse - E-YOOSO");
+            Order.SetQuantity(10);
+            Order.SetUnitPrice(2000);
+            Order.ClickAdd();
+            Order.SelectEquipment("- Laptop - Lenovo P1 Gen 3");
+            Order.SetQuantity(5);
+            Order.SetUnitPrice(39000);
+            Order.ClickAdd();
+            Order.ClickCreate();
         }
-        
+
         [When(@"I delete order")]
         public void WhenIDeleteOrder()
         {
@@ -39,9 +55,10 @@ namespace SpecFlowProject1.Steps
         [Then(@"order should be displayed")]
         public void ThenOrderShouldBeDisplayed()
         {
-            ScenarioContext.Current.Pending();
+            int newCount = Order.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
+            newCount.Should().Be(oldCount + 1);
         }
-        
+
         [Then(@"order deleted should not be displayed")]
         public void ThenOrderDeletedShouldNotBeDisplayed()
         {

@@ -9,7 +9,21 @@ namespace SpecFlowProject1.Steps
     public class TS02SupplierSteps
     {
         private static int oldCount;
-        private static string newName = "Visham";
+        private static string newName = "Richa";
+
+        [Given(@"that the login page is displayed")]
+        public void GivenThatTheLoginPageIsDisplayed()
+        {
+            BaseMethods.OpenURL("https://localhost:44362/Auth/Login");
+        }
+
+        [When(@"I log in as (.*)")]
+        public void WhenILogInAs(string username)
+        {
+            Login.EnterUsername(username);
+            Login.EnterPassword("12345");
+            Login.ClickLogin("//input[@type='submit']");
+        }
 
         [When(@"I add supplier")]
         public void WhenIAddSupplier()
@@ -58,7 +72,6 @@ namespace SpecFlowProject1.Steps
         [Then(@"supplier should be displayed")]
         public void ThenSupplierShouldBeDisplayed()
         {
-            Supplier.OpenSupplierPage();
             int newCount = Supplier.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
             newCount.Should().Be(oldCount + 1);
         }
@@ -66,7 +79,6 @@ namespace SpecFlowProject1.Steps
         [Then(@"supplier deleted should not be displayed")]
         public void ThenSupplierDeletedShouldNotBeDisplayed()
         {
-            Supplier.OpenSupplierPage();
             int newCount = Supplier.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
             newCount.Should().Be(oldCount - 1);
         }
@@ -74,7 +86,6 @@ namespace SpecFlowProject1.Steps
         [Then(@"supplier should be updated (.*)")]
         public void ThenSupplierShouldBeUpdated(int id)
         {
-            Supplier.OpenSupplierPage();
             Supplier.GetSupplierDetails(id);
             string actualValue = Supplier.GetName();
             actualValue.Should().Be(newName);
