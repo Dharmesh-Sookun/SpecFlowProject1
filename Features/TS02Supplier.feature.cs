@@ -154,7 +154,7 @@ this.FeatureBackground();
 testRunner.When("I log in as a.b@gmail.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
-testRunner.And("I delete supplier 24", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I delete supplier 27", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
 testRunner.Then("supplier deleted should not be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

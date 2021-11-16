@@ -9,13 +9,15 @@ namespace SpecFlowProject1.Steps
     public class TS03OrderSteps
     {
         private static int oldCount;
+        private static string newName = "Carl";
+
         [When(@"I add order")]
         public void WhenIAddOrder()
         {
             Order.OpenOrderPage();
             oldCount = Order.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
             Order.OpenCreateOrderPage();
-            Order.SelectSupplier("Carl");
+            Order.SelectSupplier("Carl", "//select[@id='SupplierId']");
             Order.SelectDate("06292021");
             Order.SelectEquipment("- Mouse - E-YOOSO");
             Order.SetQuantity(10);
@@ -28,30 +30,39 @@ namespace SpecFlowProject1.Steps
             Order.ClickCreate();
         }
 
-        [When(@"I delete order")]
-        public void WhenIDeleteOrder()
+        [When(@"I delete order (.*)")]
+        public void WhenIDeleteOrder(int id)
         {
-            ScenarioContext.Current.Pending();
+            Order.OpenOrderPage();
+            oldCount = Order.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
+            Order.DeleteOrder(id);
         }
-        
-        [When(@"I update order")]
-        public void WhenIUpdateOrder()
+
+
+        [When(@"I update order (.*)")]
+        public void WhenIUpdateOrder(int id)
         {
-            ScenarioContext.Current.Pending();
+            Order.OpenOrderPage();
+            Order.OpenEditOrderPage(id);
+            Order.SelectSupplier(newName, "//select[@id='OrderProp_SupplierId']");
+            Order.ClickSave("//input[@type='submit']");
         }
-        
+
+
         [When(@"I view orders")]
         public void WhenIViewOrders()
         {
-            ScenarioContext.Current.Pending();
+            Order.OpenOrderPage();
         }
-        
-        [When(@"I view one order")]
-        public void WhenIViewOneOrder()
+
+        [When(@"I view one order (.*)")]
+        public void WhenIViewOneOrder(int id)
         {
-            ScenarioContext.Current.Pending();
+            Order.OpenOrderPage();
+            Order.GetOrderDetails(id);
         }
-        
+
+
         [Then(@"order should be displayed")]
         public void ThenOrderShouldBeDisplayed()
         {
@@ -62,25 +73,41 @@ namespace SpecFlowProject1.Steps
         [Then(@"order deleted should not be displayed")]
         public void ThenOrderDeletedShouldNotBeDisplayed()
         {
-            ScenarioContext.Current.Pending();
+            int newCount = Order.GetNumberOfRowsInTable("//table[@class='table']/tbody/tr");
+            newCount.Should().Be(oldCount - 1);
         }
-        
-        [Then(@"order should be updated")]
-        public void ThenOrderShouldBeUpdated()
+
+        [Then(@"order should be updated (.*)")]
+        public void ThenOrderShouldBeUpdated(int id)
         {
-            ScenarioContext.Current.Pending();
+            Order.GetOrderDetails(id);
+            string actualValue = Order.GetSupplierName();
+            actualValue.Should().Be(newName);
         }
-        
+
+
         [Then(@"all orders should be displayed")]
         public void ThenAllOrdersShouldBeDisplayed()
         {
-            ScenarioContext.Current.Pending();
+            string currentURL = Order.GetCurrentURL();
+            string expectedURL = "https://localhost:44362/Order";
+            currentURL.Should().Be(expectedURL); 
         }
-        
-        [Then(@"all details for that order should be displayed")]
-        public void ThenAllDetailsForThatOrderShouldBeDisplayed()
+
+
+        [Then(@"all details for that order should be displayed (.*)")]
+        public void ThenAllDetailsForThatOrderShouldBeDisplayed(int id)
         {
-            ScenarioContext.Current.Pending();
+            string currenturl = Order.GetCurrentURL();
+            string expectedurl = "https://localhost:44362/Order/Details/" + id;
+            currenturl.Should().Be(expectedurl);
+        }
+
+
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            Order.DisposeDriver();
         }
     }
 }

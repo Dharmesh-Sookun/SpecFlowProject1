@@ -109,5 +109,11 @@ namespace SpecFlowProject1.Steps
             currentURL.Should().Be(expectedURL);
         }
 
+        [AfterScenario]
+        public void DisposeWebDriver()
+        {
+            Supplier.DisposeDriver();
+        }
+
     }
 }
